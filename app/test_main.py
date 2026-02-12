@@ -30,7 +30,9 @@ import datetime
         )
     ]
 )
-def test_outdated_products(today_date, products: list, expected: list) -> None:
+def test_outdated_products(today_date: any,
+                           products: list,
+                           expected: list) -> None:
     with patch("app.main.datetime.date") as mock_date:
         mock_date.today.return_value = today_date
         mock_date.side_effect = datetime.date
